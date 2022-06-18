@@ -3,6 +3,7 @@ pipeline{
     environment{
         DOCKER_TAG = getDockerTag()
     }
+    
     stages{
         stage('Build Docker Image'{
             steps{
@@ -11,6 +12,7 @@ pipeline{
         })
     }
 
+    
 }
     def getDockerTag(){
         def tag = sh script: 'git rev-parse HEAD', returnStdout: true
